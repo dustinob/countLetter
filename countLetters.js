@@ -4,16 +4,37 @@
 
 // Returns an object of the stats for the sentence given {character: count}
 
+function clean(sentence) {
+  var splitSentence = sentence.split(" ").join("").toLowerCase();
+  return splitSentence;
+}
+
 
 function countLetters(sentence) {
+  sentence = clean(sentence);
+  //console.log(splitSentence);
 
-  var splitSentence = sentence.split(" ").join("");
-  console.log(splitSentence);
+  // Object for the letters to be added too.
+  var letterList = {};
   //cycle thought each letter
-  for (var i = 0; i < splitSentence.length; i++) {
 
-    //console.log(i);
+  for (var i = 0; i < sentence.length; i++) {
+    var letter = sentence[i];
+
+    if(letterList[letter] === undefined) {
+      letterList[letter] = 1;
+    }
+    else
+    {
+      letterList[letter] = letterList[letter] + 1;
+    }
+
+    //letterList[splitSentence[i]] = 1;
+
+    //console.log(splitSentence[i]);
+
   }
-
+  return letterList;
 }
-countLetters("Lighthouse in the house")
+
+console.log(countLetters("Lighthouse in the house"));
