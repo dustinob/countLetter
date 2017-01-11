@@ -21,6 +21,7 @@ function countLetters(sentence) {
   for (var i = 0; i < sentence.length; i++) {
     var letter = sentence[i];
 
+    //check is letter in keys and counts quantity
     if(letterList[letter] === undefined) {
       letterList[letter] = 1;
     }
@@ -28,11 +29,6 @@ function countLetters(sentence) {
     {
       letterList[letter] = letterList[letter] + 1;
     }
-
-    //letterList[splitSentence[i]] = 1;
-
-    //console.log(splitSentence[i]);
-
   }
   return letterList;
 }
